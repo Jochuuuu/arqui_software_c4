@@ -4,6 +4,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { GamesModule } from './games/games.module';
+import { PurchasesController } from './purchases/purchases.controller';
+import { PurchasesModule } from './purchases/purchases.module';
+import { DownloadsModule } from './downloads/downloads.module';
 
 @Module({
   imports: [
@@ -11,9 +14,11 @@ import { GamesModule } from './games/games.module';
       isGlobal: true,
     }),
     AuthModule,
-    GamesModule, // ← AGREGAR ESTA LÍNEA
+    GamesModule,
+    PurchasesModule,
+    DownloadsModule, // ← AGREGAR ESTA LÍNEA
   ],
-  controllers: [AppController],
+  controllers: [AppController, PurchasesController],
   providers: [AppService],
 })
 export class AppModule {}
